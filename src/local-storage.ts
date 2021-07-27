@@ -19,6 +19,6 @@ export class LocalStorage<T> extends KeyValue<T> {
     save(replacer?: (this: any, key: string, value: any) => any, space?: string | number): void;
     save(replacer?: (number | string)[] | null, space?: string | number): void;
     save(replacer?: any, space?: any) {
-        return Deno.writeTextFile(this._path, JSON.stringify(this.data, replacer, space))
+        return Deno.writeTextFileSync(this._path, JSON.stringify(this.data, replacer, space))
     }
 }
